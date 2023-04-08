@@ -7,7 +7,9 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_PASSWORD: password
+      POSTGRES_PASSWORD: toor
+      POSTGRES_USER: root
+      POSTGRES_DB: agile-tools
 
   adminer:
     image: adminer
