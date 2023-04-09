@@ -10,4 +10,7 @@ export default defineNuxtConfig({
   modules: [
     '@vueuse/nuxt',
   ],
+  typescript: {
+    strict: true
+  }
 })
