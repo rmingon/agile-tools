@@ -11,16 +11,29 @@ datasource db {
 }
 
 model User {
-  id        Int     @default(autoincrement()) @id
-  email     String  @unique
-  name      String?
-  projects  Project[]
+  id              Int     @default(autoincrement()) @id
+  email           String  @unique
+  password        String
+  username        String?
+  participants    ParticipantsOnProjects[]
+  organizer       Project[]
 }
 
 model Project {
   id           Int      @default(autoincrement()) @id
   title        String
   archived     Boolean? @default(false)
-  organizer    User?    @relation(fields: [organizerId], references: [id])
-  organizerId  Int?
+  organizer    User    @relation(fields: [organizerId], references: [id])
+  organizerId  Int
+  participants ParticipantsOnProjects[]
+}
+
+model ParticipantsOnProjects {
+  participant       User      @relation(fields: [participantId], references: [id])
+  participantId     Int
+  project           Project   @relation(fields: [projectId], references: [id])
+  projectId         Int
+  assignedAt        DateTime @default(now())
+
+  @@id([participantId, projectId])
 }
