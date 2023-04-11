@@ -1,10 +1,12 @@
-import {Body, Controller, Get, Post} from '@nestjs/common';
+import {Body, Controller, Get, Post, UseGuards} from '@nestjs/common';
 import {LoginDto} from "./dto/login.dto";
 import {AuthService} from "./auth/auth.service";
 import {CreateAccountDto} from "./dto/createAccount.dto";
 import {UsersService} from "./users/users.service";
 import {User} from "@prisma/client";
 import {Logged} from "./interface/logged.interface";
+import {RefreshTokenDto} from "./dto/refreshToken.dto";
+import { AuthGuard } from './auth/auth.guard';
 
 @Controller({
   version: '1',
@@ -25,7 +27,13 @@ export class AccountController {
   }
 
   @Post('refresh_token')
-  async refreshToken(@Body() account: CreateAccountDto): Promise<User> {
-    return await this.userService.createAccount(account)
+  async refreshToken(@Body() refresh_token: RefreshTokenDto): Promise<User> {
+    return await this.authService.refreshToken(refresh_token)
+  }
+
+  @UseGuards(AuthGuard)
+  @Post('change_my_password')
+  async changePassword(@Body() {password}: Pick<CreateAccountDto, 'password'>): Promise<User> {
+    return await this.userService.changePasswordAccount(password)
   }
 }
