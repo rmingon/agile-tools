@@ -1,6 +1,6 @@
 <template>
     <h1 class="font-bold">Login</h1>
-    <p class="text-gray-400">You need to create a account for use our platform</p>
+    <p class="text-gray-400">Welcome back, please login to your account</p>
     <form action="" method="post" class="space-y-3 mt-5">
         <div>
             <label for="email" class="block mb-2 text-gray-900 font-bold">Email :</label>
