@@ -1,5 +1,5 @@
 <template>
-    <NuxtLayout v-if="route_name !== ''" >
+    <NuxtLayout v-if="route_name !== 'login'" >
         <NuxtPage />
     </NuxtLayout>
     <NuxtPage v-else/>
