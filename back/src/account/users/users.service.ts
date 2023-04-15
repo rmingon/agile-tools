@@ -18,4 +18,8 @@ export class UsersService {
     account.password = await bcrypt.hash(account.password, 10);
     return await this.prisma.user.create({data: account})
   }
+
+  async changePasswordAccount(password: string) {
+    return undefined;
+  }
 }
