@@ -4,9 +4,11 @@ import {AuthService} from "./auth/auth.service";
 import {CreateAccountDto} from "./dto/createAccount.dto";
 import {UsersService} from "./users/users.service";
 import {User} from "@prisma/client";
-import {Logged} from "./interface/logged.interface";
-import {RefreshTokenDto} from "./dto/refreshToken.dto";
+import { Logged } from "./interface/logged.interface";
+import { RefreshTokenDto } from "./dto/refreshToken.dto";
 import { AuthGuard } from './auth/auth.guard';
+import {ResetPasswordDto} from "./dto/resetPassword.dto";
+import {RecoverPasswordDto} from "./dto/recoverPassword.dto";
 
 @Controller({
   version: '1',
@@ -22,8 +24,9 @@ export class AccountController {
   }
 
   @Post('create')
-  async createAccount(@Body() account: CreateAccountDto): Promise<User> {
-    return await this.userService.createAccount(account)
+  async createAccount(@Body() account: CreateAccountDto): Promise<Omit<User, 'password'>> {
+    const {password, ...user} = await this.userService.createAccount(account)
+    return user
   }
 
   @Post('refresh_token')
@@ -31,9 +34,14 @@ export class AccountController {
     return await this.authService.refreshToken(refresh_token)
   }
 
-  @UseGuards(AuthGuard)
-  @Post('change_my_password')
-  async changePassword(@Body() {password}: Pick<CreateAccountDto, 'password'>): Promise<User> {
-    return await this.userService.changePasswordAccount(password)
+  // @UseGuards(AuthGuard)
+  @Post('reset_my_password')
+  async resetPassword(@Body() reset_password: ResetPasswordDto): Promise<User> {
+    return await this.userService.resetPassword(reset_password)
+  }
+
+  @Post('recover_my_password')
+  async recoverPassword(@Body() recover_password: RecoverPasswordDto): Promise<User> {
+    return await this.userService.recoverPassword(recover_password)
   }
 }

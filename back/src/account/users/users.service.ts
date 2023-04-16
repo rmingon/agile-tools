@@ -1,7 +1,10 @@
-import { Injectable } from '@nestjs/common';
+import {HttpException, Injectable} from '@nestjs/common';
 import { PrismaService } from '../../prisma.service';
 import { User, Prisma } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
+import {ValidationError} from "class-validator";
+import {ResetPasswordDto} from "../dto/resetPassword.dto";
+import {RecoverPasswordDto} from "../dto/recoverPassword.dto";
 
 @Injectable()
 export class UsersService {
@@ -16,10 +19,19 @@ export class UsersService {
 
   async createAccount(account: Prisma.UserCreateInput): Promise<User | null> {
     account.password = await bcrypt.hash(account.password, 10);
-    return await this.prisma.user.create({data: account})
+    try {
+      return await this.prisma.user.create({data: account})
+    } catch (e) {
+      throw new ValidationError()
+    }
+
   }
 
-  async changePasswordAccount(password: string) {
+  async resetPassword(reset_password: ResetPasswordDto) {
+    return undefined;
+  }
+
+  async recoverPassword(recover_password: RecoverPasswordDto) {
     return undefined;
   }
 }
