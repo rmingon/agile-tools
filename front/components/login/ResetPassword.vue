@@ -23,7 +23,7 @@
         </div>
       </div>
         <div>
-            <input type="submit" value="Reset Password" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-light rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none w-full cursor-pointer">
+          <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-light rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none w-full cursor-pointer">Reset Password</button>
         </div>
     </form>
     <div>
