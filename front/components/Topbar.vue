@@ -3,11 +3,11 @@
     <div class="rounded-xl mx-4 my-3 h-12 w-full bg-white items-center flex justify-between drop-shadow">
       <div class="flex items-center">
         <div class="ml-2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><path fill="currentColor" d="M26 6v2.17l-20.36 3.7a2 2 0 0 0-1.64 2v4.34a2 2 0 0 0 1.64 2l2.36.35V24a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1.26l6 1.09V26h2V6Zm-8 18h-8v-3.07l8 1.45ZM6 18.17v-4.34l20-3.63v11.6Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 32 32"><path fill="currentColor" d="m29 27.586l-7.552-7.552a11.018 11.018 0 1 0-1.414 1.414L27.586 29ZM4 13a9 9 0 1 1 9 9a9.01 9.01 0 0 1-9-9Z"/></svg>
         </div>
-        <p class="font-light text-xs ml-2">
-            New info
-        </p>
+        <div>
+            <input type="text">
+        </div>
       </div>
       <div class="mr-3 flex items-center">
         <div class="bg-gray-100 hover:bg-gray-200 rounded-xl mr-2 cursor-pointer">
