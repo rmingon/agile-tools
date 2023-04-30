@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-screen flex">
-    <div class="bg-blue-100/50 w-1/2 text-center flex-col">
+    <div class="bg-blue-100/25 w-1/2 text-center flex-col my-7 ml-6 rounded-xl">
       <img src="/img/scrum-logo.png" class="mx-auto w-1/2 mt-10" />
       <h1 class="font-bold text-blue-600">Welcome to Agile Tools website</h1>
       <h3 class="text-xl text-gray-500 font-light mt-4 w-5/6 mx-auto">Nice to meet you ! You just need to sign in ou create a account if you don't have it again</h3>
