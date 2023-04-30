@@ -1,6 +1,6 @@
 <template>
     <div class="flex">
-      <Sidebar class="h-screen w-1/6"/>
+      <Sidebar class="h-screen w-1/4"/>
       <div class="flex-col w-full bg-gray-200">
         <Topbar/>
         <div class="min-h-screen p-4">
