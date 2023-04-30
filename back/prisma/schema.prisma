@@ -11,20 +11,22 @@ datasource db {
 }
 
 model User {
-  id              Int     @default(autoincrement()) @id
-  email           String  @unique
+  id              Int         @default(autoincrement()) @id
+  email           String      @unique
   password        String
   username        String
   participants    ParticipantsOnProjects[]
+  active          Boolean?    @default(false)
   organizer       Project[]
 }
 
 model Project {
-  id           Int      @default(autoincrement()) @id
+  id           Int        @default(autoincrement()) @id
   title        String
-  archived     Boolean? @default(false)
-  organizer    User    @relation(fields: [organizerId], references: [id])
+  archived     Boolean?   @default(false)
+  organizer    User       @relation(fields: [organizerId], references: [id])
   organizerId  Int
+  tags         String[]
   participants ParticipantsOnProjects[]
 }
 
