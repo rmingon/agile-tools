@@ -1,3 +1,0 @@
-<template>
-  Personal Informations
-</template>

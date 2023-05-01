@@ -1,3 +1,0 @@
-<template>
-  RETRO
-</template>
