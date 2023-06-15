@@ -7,9 +7,9 @@ interface Props {
   closed: boolean
 }
 
-function Drawer({children, title, onClose, closed}: Props) {
+function Drawer({children, title, onClose, closed}: Props): JSX.Element {
   if (closed)
-    return ;
+    return <></>;
   return (
     <div className={'absolute top-0 left-0 h-screen w-full z-50 bg-gray-600/50'} >
       <div className={'flex justify-end'}>
